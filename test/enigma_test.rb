@@ -10,12 +10,12 @@ class EnigmaTest < Minitest::Test
   end
 
   def test_encrypt_works
-    assert_equal '4xrwtb_kn1npnv', @e.encrypt('parker', 12345, Date.parse("2016-04-02"))
+    assert_equal '4xrwtb kn1npnv', @e.encrypt('parker', 12345, Date.parse("2016-04-02"))
   end
 
 
   def test_you_can_assign_custom_codes_to_encrypt
-    assert_equal "73rwwh_kq7npq1", @e.encrypt('parker', 12345, Date.parse("2016-02-04"))
+    assert_equal "73rwwh kq7npq1", @e.encrypt('parker', 12345, Date.parse("2016-02-04"))
   end
 
   def test_decrypt_works
