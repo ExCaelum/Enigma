@@ -26,4 +26,8 @@ class EnigmaTest < Minitest::Test
     assert_equal 'hello ..end..', @e.decrypt("r05tytsgo9xgi", 49204, Date.parse("2002-02-24 "))
   end
 
+  def test_character_map_is_correct
+    assert_equal 39, @e.charmap.count
+  end
+
 end

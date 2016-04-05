@@ -7,7 +7,7 @@ message = gets.chomp
 puts "What would you like your five digit key to be? "
 key = gets.chomp
 if key == 'random'
-  key = KeyGenerator.new.key
+  key = KeyGenerator.new.generate
 elsif key == String
   puts "Please enter a five digit number."
 elsif key.length < 5

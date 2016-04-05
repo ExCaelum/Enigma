@@ -12,16 +12,20 @@ class KeyGenTest < Minitest::Test
     assert_equal KeyGenerator, @key.class
   end
 
-  def test_can_generate_keys
-    assert true, @key.key
+  def test_generate_key
+    assert true, @key.generate
   end
 
-  def test_it_can_be_assigned_keys
-    key = KeyGenerator.new(19439)
-    assert_equal 19439, key.key
+  def test_keys_are_different
+    refute_equal @key.generate, @key.generate
   end
 
-  def test_key_is_5_numbers
-    assert_equal 5, @key.key.to_s.length
+  def test_key_is_valid_code
+    assert @key.codewords.include?(@key.generate)
   end
+
+  def test_only_generate_one_key
+    assert_equal 4, @key.generate.length
+  end
+
 end
