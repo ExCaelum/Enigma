@@ -16,10 +16,6 @@ class KeyGenTest < Minitest::Test
     assert_equal @key.key, @key.key
   end
 
-  def test_it_can_change_keys
-    refute_equal @key.key, @key.newkey
-  end
-
   def test_it_can_be_assigned_keys
     key = KeyGenerator.new(19439)
     assert_equal 19439, key.key

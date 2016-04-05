@@ -14,7 +14,7 @@ class OffsetCalculatorTest < Minitest::Test
   end
 
   def test_OffsetCalculator_has_key
-    refute_equal nil, @offset.key
+    assert @offset.key
   end
 
   def test_OffsetCalculator_can_be_assigned_key
@@ -25,24 +25,23 @@ class OffsetCalculatorTest < Minitest::Test
 
   def test_can_insert_custom_dates
     date = Date.parse("2002-02-24")
-    offset = OffsetCalculator.new(38945, date)
-    assert_equal 804, offset.date
+    offset = OffsetCalculator.new(91303, date)
+
+    assert_equal "0804", offset.date
   end
 
   def test_the_date_is_encoded
     date = Date.parse("2016-04-02")
-    offset = OffsetCalculator.new(75839, date)
-    assert_equal 3056, offset.date
+    offset = OffsetCalculator.new(91303, date)
+
+    assert_equal "3056", offset.date
   end
 
   def test_code_is_finalized
     date = Date.parse("2016-04-02")
     offset = OffsetCalculator.new(91303, date)
-    offset.create_code
+    offset.calculate_code
 
-    assert_equal 94, offset.aval
-    assert_equal 13, offset.bval
-    assert_equal 35, offset.cval
-    assert_equal 9, offset.dval
+    assert_equal ({'a' => 94, 'b' => 13, 'c' => 35, 'd' => 9}), offset.hashcode
   end
 end
