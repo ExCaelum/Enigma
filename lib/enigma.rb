@@ -14,7 +14,6 @@ class Enigma
     encrypted = ""
     message = message << ' ..end..'
     message = message.downcase
-    # message = message.gsub(" ", "_")
     message = message.chars
     message.each_with_index do |char, index|
       starting_point = @charmap.find_index(char)

@@ -15,7 +15,6 @@ elsif key.length < 5
 else
   key = key.to_i
 end
-# message = message.gsub(" ","_")
 puts Date.today.strftime("%d,%m,%y")
 puts key
 puts e.decrypt(message, key)
