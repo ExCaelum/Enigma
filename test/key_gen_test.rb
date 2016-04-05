@@ -13,11 +13,15 @@ class KeyGenTest < Minitest::Test
   end
 
   def test_can_generate_keys
-    assert_equal @key.key, @key.key
+    assert true, @key.key
   end
 
   def test_it_can_be_assigned_keys
     key = KeyGenerator.new(19439)
     assert_equal 19439, key.key
+  end
+
+  def test_key_is_5_numbers
+    assert_equal 5, @key.key.to_s.length
   end
 end
