@@ -23,6 +23,7 @@ class EnigmaTest < Minitest::Test
   end
 
   def test_you_can_assign_custom_codes_to_decrypt
-    assert_equal 'hello', @e.decrypt("zw.soargi07liu", 49204, Date.parse("2002-02-24 "))
+    assert_equal 'hello ..end..', @e.decrypt("r05tytsgo9xgi", 49204, Date.parse("2002-02-24 "))
+  end
 
 end

@@ -10,12 +10,6 @@ class OffsetCalculator
     @hashcode
   end
 
-  def format_date(date)
-    date = date.strftime("%d%m%y").to_i
-    date = (date ** 2).to_s
-    date[-4..-1]
-  end
-
   def calculate_code
     create_code_arrays
     hash_code
