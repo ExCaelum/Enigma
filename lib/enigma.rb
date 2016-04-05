@@ -1,5 +1,5 @@
 require 'date'
-require_relative 'offset.rb'
+require './lib/offset.rb'
 require 'pry'
 class Enigma
   attr_reader :key, :charmap

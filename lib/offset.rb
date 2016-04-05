@@ -1,5 +1,5 @@
 require 'date'
-require_relative 'key_gen'
+require './lib/key_gen'
 require 'pry'
 class OffsetCalculator
   attr_reader :date, :key, :hashcode

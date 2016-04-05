@@ -1,4 +1,4 @@
-require_relative 'enigma'
+require './lib/enigma'
 require 'date'
 e = Enigma.new
 puts "What message would you like to encrypt? "
