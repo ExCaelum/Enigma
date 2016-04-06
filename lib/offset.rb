@@ -27,10 +27,10 @@ class OffsetCalculator
   end
 
   def create_a_value
-    a = @key[0]
-    a = @keyvalues[a]
+    first_letter = @key[0]
+    value_first_letter= @keyvalues[first_letter]
     a_offset = @date[0].to_i
-    a_value = a + a_offset
+    a_value = value_first_letter + a_offset
   end
 
   def create_b_value

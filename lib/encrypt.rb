@@ -8,8 +8,6 @@ class Encrypt
 
   def encrypt(message, key, date)
     @key = OffsetCalculator.new(key, date).calculate_code
-    # puts key
-    # puts date
     encrypted = ""
     message = message.strip
     message = message.downcase

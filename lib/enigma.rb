@@ -13,6 +13,12 @@ class Enigma
   end
 
   def decrypt(message, key = KeyGenerator.new.generate, date = Date.today)
+    @keyword = key
+    @num = date
     Decrypt.new.decrypt(message, key, date)
   end
+
+  def crack(message, date = Date.today)
+    @num = date
+    Crack.new.crack(message, date)
 end

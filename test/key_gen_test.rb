@@ -1,7 +1,10 @@
+require 'simplecov'
+SimpleCov.start
 require 'Minitest/autorun'
 require 'Minitest/pride'
 require './lib/key_gen'
 require 'pry'
+
 
 class KeyGenTest < Minitest::Test
   def setup
