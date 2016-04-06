@@ -56,4 +56,8 @@ class EnigmaTest < Minitest::Test
     assert_equal 'parker', @e.decrypt('vi4rkz', "claw", Date.parse("2016-04-02"))
   end
 
+  def test_you_can_crack #uses clue
+    decoded = "This is the test message for the Crack function ..end.."
+    encoded = "&c;NMdEVFc7VF`EOMh7NE\9@MaAMMo:@M>D<5fMAGi5O;j@V[)7I6)["
+    assert_equal decoded, @e.crack(encoded, Date.parse("2016-04-06"))
 end

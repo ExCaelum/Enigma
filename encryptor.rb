@@ -12,7 +12,7 @@ class Encryptor
 
   def write_to_file
     File.write(ARGV[1], @encrypted)
-    puts "Created #{ARGV[1]} with the key '#{@enigma.keyword}' and date #{@enigma.num.strftime("%d,%m,%y")}"
+    puts "Created #{ARGV[1]} with the key '#{@enigma.keyword}' and date #{@enigma.num.strftime("%d%m%y")}"
   end
 end
 

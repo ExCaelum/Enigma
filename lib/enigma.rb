@@ -2,6 +2,7 @@ require 'date'
 require './lib/offset.rb'
 require './lib/encrypt.rb'
 require './lib/decrypt.rb'
+require './lib/crack.rb'
 require 'pry'
 class Enigma
   attr_accessor :keyword, :num
@@ -20,5 +21,6 @@ class Enigma
 
   def crack(message, date = Date.today)
     @num = date
-    Crack.new.crack(message, date)
+    @decoder = Crack.new.crack(message, date)
+  end
 end
