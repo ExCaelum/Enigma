@@ -10,24 +10,20 @@ class EnigmaTest < Minitest::Test
   end
 
   def test_encrypt_works
-    assert_equal '4xrwtb kn1npnv', @e.encrypt('parker', 12345, Date.parse("2016-04-02"))
+    assert_equal 'vi4rkz', @e.encrypt('parker', "claw", Date.parse("2016-04-02"))
   end
 
 
-  def test_you_can_assign_custom_codes_to_encrypt
-    assert_equal "73rwwh kq7npq1", @e.encrypt('parker', 12345, Date.parse("2016-02-04"))
+  def test_you_can_assign_custom_dates_to_encrypt
+    assert_equal "yo4rn5", @e.encrypt('parker', "claw", Date.parse("2016-02-04"))
   end
 
   def test_decrypt_works
-    assert_equal 'parker', @e.decrypt('4xrwtb', 12345, Date.parse("2016-04-02"))
+    assert_equal 'parker ..end..', @e.decrypt('vi4rkzkfem0keg', "claw", Date.parse("2016-04-02"))
   end
 
-  def test_you_can_assign_custom_codes_to_decrypt
-    assert_equal 'hello ..end..', @e.decrypt("r05tytsgo9xgi", 49204, Date.parse("2002-02-24 "))
-  end
-
-  def test_character_map_is_correct
-    assert_equal 39, @e.charmap.count
+  def test_you_can_assign_custom_dates_to_decrypt
+    assert_equal 'hello ..end..', @e.decrypt("kutqrngdh3ldb", "claw", Date.parse("2002-02-24 "))
   end
 
 end
