@@ -18,7 +18,7 @@ $ ruby encryptor.rb message.txt encrypted.txt *(codeword) (date)*
 This is the file that allows you to decrypt your encrypted messages.     
 In order to do this you will type:
 
-$ruby decryptor.rb encrypted.txt decrypted.txt (codeword) *(date)*
+$ ruby decryptor.rb encrypted.txt decrypted.txt (codeword) *(date)*
 
 -- decryptor.rb -- is the file that is decrypting the text.     
 -- encrypted.txt -- is the file that is being decrypted.     
