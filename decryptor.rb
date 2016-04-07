@@ -6,8 +6,9 @@ class Decryptor
 
   def decrypt_file
     message = File.read(ARGV[0])
+    date = Date.parse(ARGV[3]) || Date.today
     @enigma = Enigma.new
-    @decrypted = @enigma.decrypt(message, ARGV[2])
+    @decrypted = @enigma.decrypt(message, ARGV[2], date)
   end
 
   def write_to_file

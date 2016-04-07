@@ -13,6 +13,7 @@ class Cracker
 
   def write_to_file
     File.write(ARGV[1], @cracked)
+    binding.pry
     puts "Cracked to #{ARGV[1]} with the key '#{@decoder.temp_key}' and date #{@enigma.num.strftime("%d%m%y")}"
   end
 end

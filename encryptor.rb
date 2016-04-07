@@ -6,8 +6,9 @@ class Encryptor
 
   def encrypt_file
     message = File.read(ARGV[0])
+    date = Date.parse(ARGV[2]) || Date.today
     @enigma = Enigma.new
-    @encrypted = @enigma.encrypt(message)
+    @encrypted = @enigma.encrypt(message, key = KeyGenerator.new.generate, date)
   end
 
   def write_to_file
