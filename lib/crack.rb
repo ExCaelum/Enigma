@@ -24,10 +24,3 @@ class Crack
     decoded
   end
 end
-
-
-# while message[-7..-1] != "..end.."
-#   temp_key = key.codewords.sample
-#   message = enigma.decrypt(temp_message, temp_key, final_date)
-#   decoded = "#{message}, #{temp_key}"
-# end
