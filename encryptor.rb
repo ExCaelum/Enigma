@@ -5,7 +5,7 @@ class Encryptor
   attr_reader :encrypted, :enimga
 
   def encrypt_file
-    message = File.read(ARGV[0])
+    message = File.read(ARGV[0]).delete("\n")
     @enigma = Enigma.new
     @encrypted = @enigma.encrypt(message, key, date)
   end

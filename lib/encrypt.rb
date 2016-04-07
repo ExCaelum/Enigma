@@ -11,8 +11,7 @@ class Encrypt
   def encrypt(message, key, date)
     key = OffsetCalculator.new(key, date).calculate_code
     encrypted = ""
-    message = message.strip
-    message = message.chars
+    message = message.strip.chars
     message.each_with_index do |char, index|
       cipher(char, index, key, encrypted)
     end
