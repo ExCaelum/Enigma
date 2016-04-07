@@ -37,4 +37,16 @@ class MainTest < Minitest::Test
 
     assert_equal File.read(output_file), DECRYPTED_TEXT
   end
+
+  def test_cracker_can_crack_from_terminal
+    ARGV[0] = File.join(Dir.pwd,'/test/support/encrypt.txt')
+    output_file = File.join(Dir.pwd, '/test/support/decrypt.txt')
+    ARGV[1] = output_file
+    ARGV[2] = "2016-04-07"
+    c = Cracker.new
+    c.crack_file
+    c.write_to_file
+
+    assert_equal File.read(output_file), DECRYPTED_TEXT
+  end
 end
