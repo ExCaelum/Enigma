@@ -9,48 +9,46 @@ class Decrypt
       ".","<",">",";",":","/","?","|","!"," "]
 
   def decrypt(message, key, date)
-    @key = OffsetCalculator.new(key, date).calculate_code
+    key = OffsetCalculator.new(key, date).calculate_code
     decrypted = ""
     message.chars.each_with_index do |char, index|
-      starting_point = CHARMAP.find_index(char)
-      if index % 4 == 0
-        amount = starting_point - @key['a']
-        decrypted << "#{CHARMAP[amount % 84]}"
-      elsif index % 4 == 1
-        amount = starting_point - @key['b']
-        decrypted << "#{CHARMAP[amount % 84]}"
-      elsif index % 4 == 2
-        amount = starting_point - @key['c']
-        decrypted << "#{CHARMAP[amount % 84]}"
-      else
-        amount = starting_point - @key['d']
-        decrypted << "#{CHARMAP[amount % 84]}"
-      end
+      cipher(char, index, key, decrypted)
     end
     decrypted
   end
+
+  private
+
+  def cipher(char, index, key, decrypted)
+    starting_point = CHARMAP.find_index(char)
+    if index % 4 == 0
+      offset_a(starting_point, key, decrypted)
+    elsif index % 4 == 1
+      offset_b(starting_point, key, decrypted)
+    elsif index % 4 == 2
+      offset_c(starting_point, key, decrypted)
+    else
+      offset_d(starting_point, key, decrypted)
+    end
+  end
+
+  def offset_a(starting_point,key, decrypted)
+    amount = starting_point - key['a']
+    decrypted << "#{CHARMAP[amount % 84]}"
+  end
+
+  def offset_b(starting_point, key, decrypted)
+    amount = starting_point - key['b']
+    decrypted << "#{CHARMAP[amount % 84]}"
+  end
+
+  def offset_c(starting_point, key, decrypted)
+    amount = starting_point - key['c']
+    decrypted << "#{CHARMAP[amount % 84]}"
+  end
+
+  def offset_d(starting_point, key, decrypted)
+    amount = starting_point - key['d']
+    decrypted << "#{CHARMAP[amount % 84]}"
+  end
 end
-
-
-
-
-# require './lib/enigma'
-# require 'date'
-# e = Enigma.new
-# puts "What message would you like to decrypt? "
-# message = gets.chomp
-#
-# puts "What is the five digit key you recieved? "
-# key = gets.chomp
-# if key == 'random'
-#   key = KeyGenerator.new.key
-# elsif key == String
-#   puts "Please enter a five digit number."
-# elsif key.length < 5
-#   puts "Please enter a five digit number."
-# else
-#   key = key.to_i
-# end
-# puts Date.today.strftime("%d,%m,%y")
-# puts key
-# puts e.decrypt(message, key)

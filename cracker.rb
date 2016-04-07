@@ -7,14 +7,23 @@ class Cracker
   def crack_file
     message = File.read(ARGV[0])
     @enigma = Enigma.new
-    date = Date.parse(ARGV[2])
     @cracked = @enigma.crack(message, date)
+    @key = @cracked[-4..-1]
   end
 
   def write_to_file
-    File.write(ARGV[1], @cracked)
-    binding.pry
-    puts "Cracked to #{ARGV[1]} with the key '#{@decoder.temp_key}' and date #{@enigma.num.strftime("%d%m%y")}"
+    File.write(ARGV[1], @cracked[0..-7])
+    puts "Cracked to #{ARGV[1]} with the cracked key '#{@key}' and date #{@enigma.num.strftime("%d%m%y")}"
+  end
+
+  private
+
+  def date
+    if ARGV[2] == nil
+      Date.today
+    else
+      Date.parse(ARGV[2])
+    end
   end
 end
 

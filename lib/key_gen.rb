@@ -1,9 +1,8 @@
 require 'pry'
 class KeyGenerator
-  attr_reader :key, :codewords
+  attr_reader :codewords
 
   def initialize
-    @key
     @codewords = ["clue", "fern", "then", "sign", "gone", "pair", "hair", "ring",
                   "site", "sunk", "coat", "sane", "show", "lend", "prim", "rise",
                   "upon", "find", "gave", "wing", "plan", "high", "note", "into",
@@ -15,6 +14,6 @@ class KeyGenerator
   end
 
   def generate
-    @key = @codewords.sample
+    codewords.sample
   end
 end
