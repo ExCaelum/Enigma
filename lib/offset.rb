@@ -25,32 +25,11 @@ class OffsetCalculator
     date[-4..-1]
   end
 
-  def create_a_value
-    a_letter = key[0]
-    first_value = keyvalues[a_letter]
-    a_offset = date[0].to_i
-    first_value + a_offset
-  end
-
-  def create_b_value
-    b_letter = key[1]
-    second_value = keyvalues[b_letter]
-    b_offset = date[1].to_i
-    second_value + b_offset
-  end
-
-  def create_c_value
-    c_letter = key[2]
-    third_value = keyvalues[c_letter]
-    c_offset = date[2].to_i
-    third_value + c_offset
-  end
-
-  def create_d_value
-    d_letter = key[3]
-    fourth_value = keyvalues[d_letter]
-    d_offset = date[3].to_i
-    fourth_value + d_offset
+  def create_value(i)
+    letter = key[i]
+    value = keyvalues[letter]
+    offset = date[i].to_i
+    value + offset
   end
 
   def modify_offsets
@@ -60,10 +39,10 @@ class OffsetCalculator
 
   def create_code
     code = {}
-    code["a"] = create_a_value
-    code["b"] = create_b_value
-    code["c"] = create_c_value
-    code["d"] = create_d_value
+    code["a"] = create_value(0)
+    code["b"] = create_value(1)
+    code["c"] = create_value(2)
+    code["d"] = create_value(3)
     code
   end
 
